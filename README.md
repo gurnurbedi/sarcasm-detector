@@ -60,12 +60,4 @@ python manage.py runserver
 
 - [Models](https://github.com/amirabaskohi/semeval2022-task6-sarcasm-detection)
 
-## Contributing
-
-Contributions are always welcome!
-
-See `contributing.md` for ways to get started.
-
-Please adhere to this project's `code of conduct`.
-
 
