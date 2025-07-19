@@ -1,0 +1,16 @@
+
+    {% extends 'base.html' %}
+    {% block content %}
+    <h1 style="text-align:center;">Result</h1>
+    <br><br><br>
+    
+    <body style="background-color:#d4e7ff;">
+    {% if user_text %}
+        <div style="margin-top: 20px;">
+            <p><strong>User Text:</strong> {{ user_text }}</p>
+            <p><strong>Prediction:</strong> {{ prediction_result }}</p>
+        </div>
+    </body>
+    {% endif %}
+    {% endblock %}
+    

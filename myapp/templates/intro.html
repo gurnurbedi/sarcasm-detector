@@ -1,0 +1,264 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Adjust the padding and border settings to ensure the image is only at the edges -->
+
+
+<body style="background-color:#d4e7ff;">
+<br><br><br><br>
+
+<style>
+
+    .logo
+    {
+        position: absolute;
+        top: 2px;
+        right: 9px;
+        width: 90px;
+        height: 110px;
+    }
+    .text-image {
+        position: absolute;
+        top: 51px;
+        right: 132px;
+        width: 1000px;
+        height: 550px;
+    }
+
+    .sidebar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 180px;
+        height: 100%;
+        background-color: #2b4362;
+        padding: 24px;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+
+    .sidebar a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding: 60px 0;
+        margin: 5px 0;
+    }
+
+    .sidebar a:hover {
+        background-color: #3659b5;
+    }
+
+    .dropdown-right {
+        position: absolute;
+        left: 180px;
+        top: 50px; /* Adjust the top position to align with the "Models" link */
+        width: 200px;
+        background-color: #2b4362;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        display: none;
+        flex-direction: column;
+    }
+
+    .dropdown-right a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding: 12px 16px;
+        margin: 0;
+    }
+
+    .dropdown-right a:hover {
+        background-color: #3659b5;
+    }
+
+    .show-dropdown {
+        display: flex;
+    }
+
+    .center-button {
+        position: absolute;
+        left: 48%;
+        top: 81%;
+        background-color: #000080;
+        color: white;
+        border-radius: 12px;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        text-align: center;
+    }
+
+</style>
+
+<div class="sidebar">
+    <a href="#" id="moreOptionsLink"><b>Models</b></a>
+    <a href="#" data-toggle="modal" data-target="#WittyBotModal"><b>About WittyBot</b></a>
+    <a href="#" data-toggle="modal" data-target="#ScopeModal"><b>Scope</b></a>
+</div>
+
+<div class="dropdown-right" id="dropdownRight">
+    <a href="#" data-toggle="modal" data-target="#LSTNModal">LSTN</a>
+    <a href="#" data-toggle="modal" data-target="#RoBERTaModal">RoBERTa</a>
+    <a href="#" data-toggle="modal" data-target="#XLNETModal">XLNET</a>
+</div>
+
+<img src="{% static 'logo1.png' %}" class="logo">
+<img src="{% static 'removebg1.png' %}" class="text-image">
+
+<!-- LSTN Modal -->
+<div class="modal fade" id="LSTNModal" tabindex="-1" role="dialog" aria-labelledby="LSTNModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="LSTNModalLabel">LSTN Model</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>The LSTN model is a variant of the Long Short-Term Memory (LSTM) network. It is designed for sequence prediction problems and is widely used in natural language processing (NLP) tasks.</p>
+                <p>This model captures the temporal dependencies in data and is known for its ability to handle long-range dependencies effectively.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- XLNET Modal -->
+<div class="modal fade" id="XLNETModal" tabindex="-1" role="dialog" aria-labelledby="XLNETModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="XLNETModalLabel">XLNET Model</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>XLNET is a state-of-the-art language model developed by researchers at Google AI Brain and Carnegie Mellon University. It's designed to outperform previous models like BERT by leveraging a novel pre-training method that combines the best aspects of autoregressive and autoencoding models.</p>
+                <p>XLNET can handle a wide range of natural language processing tasks with high accuracy, including text classification, sentiment analysis, and question answering.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- RoBERTa Modal -->
+<div class="modal fade" id="RoBERTaModal" tabindex="-1" role="dialog" aria-labelledby="RoBERTaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="RoBERTaModalLabel">RoBERTa Model</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>RoBERTa stands for "Robustly optimized BERT approach." It's a natural language processing (NLP) model developed by Facebook AI. Think of it as a smarter version of the BERT model that has been fine-tuned to perform even better.</p>
+                <p>RoBERTa reads and learns from a massive amount of text (like books, articles, and websites) to understand how words and sentences work.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- XLNET Modal -->
+<div class="modal fade" id="XLNETModal" tabindex="-1" role="dialog" aria-labelledby="XLNETModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="XLNETModalLabel">XLNET Model</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>XLNET is a state-of-the-art language model developed by researchers at Google AI Brain and Carnegie Mellon University. It's designed to outperform previous models like BERT by leveraging a novel pre-training method that combines the best aspects of autoregressive and autoencoding models.</p>
+                <p>XLNET can handle a wide range of natural language processing tasks with high accuracy, including text classification, sentiment analysis, and question answering.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- WittyBot Modal -->
+<div class="modal fade" id="WittyBotModal" tabindex="-1" role="dialog" aria-labelledby="WittyBotModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="WittyBotModalLabel">About WittyBot</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>WittyBot is an intelligent bot designed to detect and respond to sarcasm in text. It uses advanced natural language processing techniques to understand the nuances of human language, making interactions more natural and engaging.</p>
+                <p>WittyBot can be used in various applications, including customer support, virtual tutoring, and personal assistance, providing more accurate and empathetic responses.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scope Modal -->
+<div class="modal fade" id="ScopeModal" tabindex="-1" role="dialog" aria-labelledby="ScopeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ScopeModalLabel">Scope of WittyBot</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>WittyBot has a wide range of applications, including but not limited to:</p>
+                <ul>
+                  <li><b>Intelligent Bots:</b> WittyBot can be used in Intelligent bots which are basically bots equipped with detecting sarcasm and are used in customer support, virtual tutoring, and personal assistance. 
+                  Example, a virtual tutor can detect when a student is being sarcastic about their understanding of a topic and adjust its teaching approach accordingly.
+                  </li>
+                  <br>
+                  <li>
+              <b>Healthcare and Therapy:</b> In virtual therapy sessions and health chatbots, WittyBot can help in detecting sarcasm which can further be used to accurately interpret the patient’s emotions and responses, ensuring that the therapists and mental health professionals can better understand the patient's true feelings, leading to more effective treatment and support.
+               For example, a patient saying, "Yeah, I'm totally fine" sarcastically can be flagged for further attention.
+                  </li>
+                  <br>
+              <li><b>Customer Service Analysis:</b> WittyBot can be used to detect sarcasm to analyze and review the customer feedback efficiently, support tickets, and interactions with service representatives.
+               This can help the companies understand the true sentiment behind customer messages a lot better and prevent miscommunication.
+              </li>    
+            </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("moreOptionsLink").addEventListener("click", function() {
+        var dropdownRight = document.getElementById("dropdownRight");
+        if (dropdownRight.classList.contains("show-dropdown")) {
+            dropdownRight.classList.remove("show-dropdown");
+        } else {
+            dropdownRight.classList.add("show-dropdown");
+        }
+    });
+</script>
+
+<!-- <b><p style="position: absolute; right: 500px; top: 520px; color: #264368; font-size: 30px;"> Scope of WittyBot</p></b> !-->
+
+<button class="center-button" onclick="location.href='{% url 'home' %}'">Try WittyBot!</button>
+
+</body>
+{% endblock %}

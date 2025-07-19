@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<br><br>
+
+<b><p style="position: absolute; right: 280px; top: 100px; color: #264368; font-size: 42px;"> Enter Sentences for Sarcasm Detection</p></b>
+<br><br><br><br>
+<body style="background-color:#d4e7ff;">
+
+<style>
+    .rounded-button {
+        position: absolute;
+        background-color: #000080;
+        color: white;
+        border-radius: 12px;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .speech-button {
+        position: absolute;
+        background-color: #000080;
+        color: white;
+        border-radius: 12px;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        text-align: center;
+        top: 400px;
+        right: 640px;
+    }
+</style>
+
+<br><br><br>
+<div class="mb-3">
+    <br><br>
+    <form id="predictForm" method="POST" action="{% url 'page2' %}">
+        {% csrf_token %}
+        <input type="text" name="user_text" class="form-control" id="exampleFormControlInput1" placeholder="Enter text here!" required>
+        <br><br>
+        <button type="submit" class="rounded-button" style="position: absolute; left: 200px; top: 400px; font-size: 16px;">Submit</button>
+        <button type="button" class="rounded-button" style="position: absolute; right: 200px; top: 400px; font-size: 16px;" onclick="document.getElementById('predictForm').reset();">Clear</button>
+        <button type="button" class="speech-button" onclick="startDictation()"> Speak 🎤</button>
+    </form>
+    {% if prediction %}
+    <div class="mt-3">
+        <p><b>Prediction:</b> {{ prediction }}</p>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+    function startDictation() {
+        if (window.hasOwnProperty('webkitSpeechRecognition')) {
+            var recognition = new webkitSpeechRecognition();
+
+            recognition.continuous =false;
+            recognition.interimResults = false;
+
+            recognition.lang = "en-US";
+            recognition.start();
+
+            recognition.onresult = function(e) {
+                document.getElementById('exampleFormControlInput1').value = e.results[0][0].transcript;
+                recognition.stop();
+            };
+
+            recognition.onerror = function(e) {
+                recognition.stop();
+            };
+        }
+    }
+</script>
+</body>
+{% endblock %}
