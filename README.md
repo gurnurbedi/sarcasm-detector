@@ -9,7 +9,7 @@ Bootstrap 4.3.1 has been used for the creation of UI.
 
 ## Dataset
 
-The Dataset used has been a combination
+The Dataset used is a combination of the following
  - [Hugging Face Dataset](https://huggingface.co/datasets/siddhant4583agarwal/sarcasm-detection-dataset)
  - [GitHub Dataset](https://github.com/AmirAbaskohi/SemEval2022-Task6-Sarcasm-Detection/tree/main/Data/Cleaned%20Datasets)
  
