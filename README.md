@@ -1,5 +1,5 @@
 
-# Sarcasm Detector using LLM Models
+# WittyBot: Sarcasm Detector using LLM Models
 
 This project detects sarcasm using AI model (LSTM + Attention) and LLM models (RoBERTa, XLNET). These NLP models have been fine tuned specifically to detect sarcasm in the user entered entered sentences.
 
@@ -7,9 +7,17 @@ While Django has been used for the integration of Python and the UI.
 
 Bootstrap 4.3.1 has been used for the creation of UI.
 
+## Features
+
+- **Binary Classification:** Labels input as sarcastic or not sarcastic based on the Logits score.
+- **Contextual Understanding:** Uses transformer-based LLMs like BERT, RoBERTa to grasp subtle cues, irony, and implied meanings
+- **Real-time Text Input:** Users can type or paste text and instantly get sarcasm classification.
+- **Logits Meter:** Displays how certain the prediction of the model is.
+
+
 ## Dataset
 
-The Dataset used is a combination of the following
+The Dataset used has been a combination
  - [Hugging Face Dataset](https://huggingface.co/datasets/siddhant4583agarwal/sarcasm-detection-dataset)
  - [GitHub Dataset](https://github.com/AmirAbaskohi/SemEval2022-Task6-Sarcasm-Detection/tree/main/Data/Cleaned%20Datasets)
  
@@ -60,4 +68,11 @@ python manage.py runserver
 
 - [Models](https://github.com/amirabaskohi/semeval2022-task6-sarcasm-detection)
 
+## Contributing
+
+Contributions are always welcome!
+
+See `contributing.md` for ways to get started.
+
+Please adhere to this project's `code of conduct`.
 
