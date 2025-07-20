@@ -10,7 +10,7 @@ Bootstrap 4.3.1 has been used for the creation of UI.
 ## Features
 
 - **Binary Classification:** Labels input as sarcastic or not sarcastic based on the Logits score.
-- **Contextual Understanding:** Uses transformer-based LLMs like BERT, RoBERTa to grasp subtle cues, irony, and implied meanings
+- **Contextual Understanding:** Uses transformer-based LLMs like BERT, RoBERTa and XLNET to grasp subtle cues, irony, and implied meanings
 - **Real-time Text Input:** Users can type or paste text and instantly get sarcasm classification.
 - **Logits Meter:** Displays how certain the prediction of the model is.
 
